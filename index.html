@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Outlier_Detection_to_Association_Tests</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Outlier_Detection_to_Association_Tests (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7813,7 +7813,7 @@ a.anchor-link {
 <li>Association Tests (Chi-square, Kruskal-Wallis)</li>
 <li>Export outlier-checked dataset</li>
 </ol>
-<p>All plots are also saved as <code>.jpg</code> files in the working folder, ready to drop into a report.</p>
+<p>All plots are also saved as <code>.jpg</code> files in the working folder.</p>
 </div>
 </div>
 </div>
@@ -8048,7 +8048,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Step-2:-Outlier-Detection">Step 2: Outlier Detection<a class="anchor-link" href="#Step-2:-Outlier-Detection">¶</a></h2><p><strong>Approach used in this notebook (matching standard statistical practice):</strong> the 1.5×IQR rule is used only
-to <em>flag candidate</em> points for inspection — it is not used to automatically delete anything. For each flagged
+to <em>flag candidate</em> points for inspection where it is not used to automatically delete anything. For each flagged
 variable, we look at how the flagged values are distributed:</p>
 <ul>
 <li>If many responses sit beyond the whisker (a genuine <strong>bulk region</strong>, e.g. a cluster of 30+ students with
@@ -8056,7 +8056,7 @@ similar values), that's a real feature of the population, not an error, and is <
 <li>If a value is an <strong>isolated, single point</strong>, clearly separated from every other observation, <em>and</em> it is
 domain-implausible (not just statistically rare), it is treated as a likely data-entry error and <strong>removed</strong>.</li>
 </ul>
-<p>This distinction — and the final keep/remove decision for each flagged variable — is discussed after the
+<p>The final keep/remove decision for each flagged variable is discussed after the
 "before" boxplots below.</p>
 </div>
 </div>
@@ -8307,19 +8307,19 @@ Name: count, dtype: int64
 <td>Age</td>
 <td>26 (12 students), 27 (1)</td>
 <td>Keep</td>
-<td>Bulk cluster of older/mature students — plausible, not an error</td>
+<td>Bulk cluster of older/mature students, plausible, not an error</td>
 </tr>
 <tr>
 <td>Admission_Year</td>
 <td>2013–2016 (13 students)</td>
 <td>Keep</td>
-<td>Bulk cluster — legitimate earlier admission cohort</td>
+<td>Bulk cluster, legitimate earlier admission cohort</td>
 </tr>
 <tr>
 <td>HSC_Year</td>
 <td>2012–2017 (115), 2022 (9)</td>
 <td>Keep</td>
-<td>Bulk clusters on both ends — legitimate cohort spread</td>
+<td>Bulk clusters on both ends, legitimate cohort spread</td>
 </tr>
 <tr>
 <td>Semester</td>
@@ -8331,13 +8331,13 @@ Name: count, dtype: int64
 <td>Study_Hours</td>
 <td>8–13 hrs/day (22 students)</td>
 <td>Keep</td>
-<td>Bulk cluster of highly dedicated students — plausible</td>
+<td>Bulk cluster of highly dedicated students, plausible</td>
 </tr>
 <tr>
 <td>Study_Sessions</td>
 <td>4–7 sessions/day (42 students)</td>
 <td>Keep</td>
-<td>Bulk cluster — plausible study pattern</td>
+<td>Bulk cluster, plausible study pattern</td>
 </tr>
 <tr>
 <td><strong>Social_Media_Hours</strong></td>
@@ -8367,7 +8367,7 @@ Name: count, dtype: int64
 <td>Current_CGPA</td>
 <td>0.00 (39), 0.13125 (1), 0.5 (1), 1.42–1.64 (4)</td>
 <td>Keep</td>
-<td>Same reasoning as above — legitimate low-performing values, not impossible</td>
+<td>Same reasoning as above, legitimate low-performing values, not impossible</td>
 </tr>
 <tr>
 <td>Credits_Completed</td>
@@ -8379,11 +8379,11 @@ Name: count, dtype: int64
 <td>Family_Income</td>
 <td>144,000–2,000,000 (61 students, incl. one 400,006)</td>
 <td>Keep</td>
-<td>Wide income range is realistically possible; 400,006 is an odd number possibly meant to be 400,000, but changing it would be guessing — retained as-is</td>
+<td>Wide income range is realistically possible; 400,006 is an odd number possibly meant to be 400,000, but changing it would be guessing, retained as-is</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Net result: exactly one row is removed</strong> — the single Social_Media_Hours = 20 entry.</p>
+<p><strong>Net result: exactly one row is removed</strong> - the single Social_Media_Hours = 20 entry.</p>
 </div>
 </div>
 </div>
@@ -8455,7 +8455,7 @@ Shape before: 1193 rows -&gt; after: 1192 rows
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Comparing the two figures: every variable looks essentially the same before and after, since only one row
-was removed — as expected, given that almost all the flagged points were genuine bulk clusters, not errors.
+was removed as expected, given that almost all the flagged points were genuine bulk clusters, not errors.
 The only visible (subtle) change is in the Social_Media_Hours panel, where the single point at 20 is gone.</p>
 </div>
 </div>
@@ -8469,7 +8469,7 @@ The only visible (subtle) change is in the Social_Media_Hours panel, where the s
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Additional-Diagnostic-Plots-(Scatter-Plots-&amp;-Q-Q-Plots)">Additional Diagnostic Plots (Scatter Plots &amp; Q-Q Plots)<a class="anchor-link" href="#Additional-Diagnostic-Plots-(Scatter-Plots-&amp;-Q-Q-Plots)">¶</a></h3><p>Scatter plots help visually check the relationship between CGPA and other continuous variables (useful for
 the discussion section), and Q-Q plots check how far each numeric variable departs from a normal
-distribution — relevant context if you discuss distributional assumptions in your report.</p>
+distribution which is relevant context if you discuss distributional assumptions in your report.</p>
 </div>
 </div>
 </div>
@@ -9220,7 +9220,7 @@ Name: count, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Step-6:-Association-Tests">Step 6: Association Tests<a class="anchor-link" href="#Step-6:-Association-Tests">¶</a></h2><ul>
 <li><strong>Categorical predictors vs. CGPA_Class:</strong> Chi-square test of independence.</li>
-<li><strong>Continuous predictors vs. CGPA_Class:</strong> Kruskal-Wallis test (a non-parametric alternative to ANOVA —
+<li><strong>Continuous predictors vs. CGPA_Class:</strong> Kruskal-Wallis test (a non-parametric alternative to ANOVA seems
 appropriate here since CGPA_Class is ordinal and several continuous variables are skewed, as seen in the
 Q-Q plots above).</li>
 </ul>
